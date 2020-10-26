@@ -2,11 +2,15 @@
 
 import React from 'react';
 
-export default ({ input, label }) => {
+export default ({ input, label, meta: { error, touched } }) => {
     return (
         <div>
             <label>{label}</label>
-            <input {...input} />
+            <input {...input} style={{ marginBottom: '5px' }} />
+            <div className="red-text" style={{ marginBottom: '20px' }}>
+                {/* if  touched is true and there is an error, return error */}
+                {touched && error}
+            </div>
         </div>
     )
 }
